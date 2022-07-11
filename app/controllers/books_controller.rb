@@ -2,7 +2,7 @@ class BooksController < ApplicationController
   def new
     @book = Book.new
   end
-  
+
   # 投稿データの保存
   def create
     @book = Book.new(book_params)
@@ -16,12 +16,12 @@ class BooksController < ApplicationController
 
   def show
   end
-  
+
     # 投稿データのストロングパラメータ
   private
 
   def book_params
     params.require(:book).permit(:title, :body)
   end
-  
+
 end

@@ -1,14 +1,14 @@
   class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
-  
+
   # ログインした後、Userにいく
   def after_sign_in_path_for(resource)
-    about_path
+    user_path
   end
-  
+
   # ログアウトしたらTopにいくよ
   def after_sign_out_path_for(resource)
-    about_path
+    root_path
   end
 
   protected

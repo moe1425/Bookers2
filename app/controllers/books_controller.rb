@@ -11,6 +11,12 @@ class BooksController < ApplicationController
     # book/showページに移動
     redirect_to book_path(@book)
   end
+  
+  def update
+    @book = Book.find(params[:id])
+    @book.update(book_params)
+    redirect_to book_path(@book)
+  end
 
   def index
     @books = Book.all
@@ -20,6 +26,10 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
   end
   
+  def edit
+    @book = Book.find(params[:id])
+  end
+
   def destroy
     # 削除するBookレコードを取得
     @post_image = Book.find(params[:id])

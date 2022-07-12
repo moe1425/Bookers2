@@ -13,20 +13,21 @@
                   <% else %>
                     <%= image_tag 'default-image', size: "80x80" %><br />
                 <% end %>
-                <%= link_to user_path(current_user)  %>
+                <%= link_to current_user.name, user_path(current_user) %>
               </td>
               <td>
-                <%= link_to book.title, book_path(book.id) %>
+                <%= link_to @book.title, book_path(@book.id) %>
               </td>
               <td>
-                <%= book.body %>
+                <%= @book.body %>
               </td>
               <td>
-                <%= link_to "Edit", edit_list_path(@book.id), class: "btn btn-sm btn-success" %>
+                <%= link_to "Edit", edit_book_path(@book.id), class: "btn btn-sm btn-success" %>
               </td>
               <td>
-                <% if @post_image.user == current_user %>
-                  <%= link_to "Destoy", post_image_path(@book), method: :delete, class: "btn btn-sm btn-danger" %>
+                <% if @book.user == current_user %>
+                  <%= link_to "Destoy", book_path(@book), method: :delete, class: "btn btn-sm btn-danger",
+                  data: {confirm: "本当に削除しますか？"} %>
                 <% end %>
               </td>
             </tr>

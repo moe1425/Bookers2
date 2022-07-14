@@ -13,8 +13,19 @@
  *= require_tree .
  *= require_self
  */
- 
- 
+
+*, :after, :before {
+    box-sizing: border-box;
+}
+
 .form-control {
+  width: 100%;
+}
+
+.form-control name{
+  width: 100%;
+}
+
+.form-control introduction{
   width: 100%;
 }

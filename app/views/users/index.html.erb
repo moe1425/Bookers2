@@ -17,14 +17,12 @@
           <% @users.each do |user| %>
           <tr>
             <td>
-              <% if user.image.attached? %>
-                <%= image_tag user.image, size: "80x80" %>
-              <% else %>
-                <%= image_tag 'default-image', size: "80x80" %>
+              <%= link_to user_path(user) do %>
+                <%=image_tag user.get_profile_image(80, 80) %>
               <% end %>
             </td>
             <td><%= user.name %> </td>
-            <td><%=link_to "show", user_path(user.id) %></td>
+            <td><%=link_to 'show', user_path(user.id) %></td>
           </tr>
           <% end %>
         </tbody>

@@ -8,11 +8,7 @@
           <tbody>
               <tr>
                 <td>
-                  <% if @user.image.attached? %>
-                    <%= image_tag @user.image, size: "80x80" %>
-                  <% else %>
-                    <%= image_tag 'default-image', size: "80x80" %><br />
-                  <% end %>
+                  <%= image_tag @user.get_profile_image(80, 80) %><br />
                   <%= link_to @user.name, user_path(@user) %>
                 </td>
                 <td>
@@ -28,8 +24,7 @@
                 </td>
                 <td>
                   <% if @book.user == current_user %>
-                    <%= link_to "Destoy", book_path(@book), method: :delete, data: {confirm: "本当に削除しますか？"},
-                    class: "btn btn-sm btn-danger" %>
+                    <%= link_to 'Destoy', book_path(@book), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-sm btn-danger" %>
                   <% end %>
                 </td>
               </tr>

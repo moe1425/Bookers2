@@ -49,9 +49,9 @@ class BooksController < ApplicationController
 
   def destroy
     # 削除するBookレコードを取得
-    @post_image = Book.find(params[:id])
-    @post_image.destroy
-    # PostImageの一覧ページへのパス
+    @book = Book.find(params[:id])
+    @book.destroy
+    # Bookの一覧ページへのパス
     redirect_to books_path
   end
 

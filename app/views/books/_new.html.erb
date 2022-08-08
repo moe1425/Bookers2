@@ -1,5 +1,4 @@
-
- <div class="col-md-3">
+  <div class="col-md-3">
     <h2>User info</h2>
     <table class="table">
       <tbody>
@@ -16,11 +15,19 @@
         </tr>
       </tbody>
     </table>
-      <!--% if @user.id == current_user.id %>-->
-        <%= link_to edit_user_path(user.id), class: "btn btn-outline-secondary btn-block", method: :get do %>
+    <!--% if @user.id == current_user.id %>-->
+    <% if user.name != "guestuser" %>
+      <div class='row'>
+        <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block" do %>
           <i class="fas fa-user-cog"></i>
         <% end %>
-      <!--% end %>-->
+      </div>
+    <!--% end %>-->
+    <% end %>
+    <!--% @user.id == current_user.id %>-->
+    <!--%= link_to edit_user_path(user.id), class: "btn btn-outline-secondary btn-block", method: :get do %>-->
+      <!--<i class="fas fa-user-cog"></i>-->
+    <!--% end %>-->
     <h2>New book</h2>
     <%= form_with model: Book.new do |f| %>
       <div class="form-group">
